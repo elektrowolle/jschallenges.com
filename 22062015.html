@@ -1,0 +1,49 @@
+<!--
+This weeks challenge is a variation of the classic fizz buzz challenge.
+Make an html page that allows users to enter 3 numbers. Using javascript return,
+to the html page, all numbers from 0 to 10,000 that are multiples of all 3 numbers.
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+
+  <h1><a href="http://jschallenges.com">Challenge</a></h1>
+  <p>This weeks challenge is a variation of the classic fizz buzz challenge.
+  Make an html page that allows users to enter 3 numbers. Using javascript return,
+  to the html page, all numbers from 0 to 10,000 that are multiples of all 3 numbers.</p>
+
+  <h2>Solution</h2>
+
+  <input name="number1" type="number" value="0">
+  <input name="number2" type="number" value="0">
+  <input name="number3" type="number" value="0">
+
+  <button id="calculateBtn">
+    Get the numbers
+  </button>
+
+  <pre id="output"></pre>
+
+  <script type="text/javascript">
+    $output = $("#output");
+    $("#calculateBtn").click(function () {
+      var n = [
+        $("input[name=number1]").val(),
+        $("input[name=number2]").val(),
+        $("input[name=number3]").val()
+      ];
+
+      $output.html('');
+
+      for (var i = 0; i < 10000; i++) {
+        if(i % n[0] + i % n[1] + i % n[2] == 0)
+        $output.html($output.html().concat(i + '\r\n'));
+      }
+    })
+  </script>
+  </body>
+</html>
